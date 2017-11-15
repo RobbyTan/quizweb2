@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to UPH Registration!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">	
+<h1>WELCOME TO UPH!</h1>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>NIM</th> 
+    <th>Class</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  <%student.forEach(function(student){%>
+  <tr>
+    <td><%=student.name%></td>
+    <td><%=student.nim%></td>
+    <td><%=student.kelas%></td>
+    <td><%=student.email%></td>
+    <td><a class="btn btn-warning" href="/<%=student._id%>/edit">Edit</a></td>
+    <td><form class="delete-form" action="/<%=student._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-danger" >Delete</button>
+    </form></td>
+  </tr>
+  <%})%>
+</table>
+</div>
+</body>
+</html>
